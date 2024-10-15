@@ -2,6 +2,7 @@ import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
 import * as appsync from "aws-cdk-lib/aws-appsync";
 import * as path from "path";
+import * as logs from "aws-cdk-lib/aws-logs";
 export class AppsyncTestStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -19,6 +20,10 @@ export class AppsyncTestStack extends cdk.Stack {
             description: "1 year api key",
           },
         },
+      },
+      logConfig: {
+        fieldLogLevel: appsync.FieldLogLevel.ALL,
+        retention: logs.RetentionDays.ONE_DAY,
       },
     });
 
