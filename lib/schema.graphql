@@ -1,0 +1,8 @@
+type demo {
+  id: String!
+  version: String!
+  name: String!
+}
+type Query {
+  listDemos: [ demo! ]
+}
